@@ -10,7 +10,7 @@ Assignment 2: Algorithm Design (Project Work), Group 8
 - website files: coming soon
 
 ## Website
-Link coming soon (GitHub Pages)
+Link: https://isabellamartensson.github.io/Project-Work-8/
 
 ## Group members
 - Isabella Mårtensson (Algorithm/GitHub lead)
