@@ -1,3 +1,4 @@
+```
 BEGIN
 
     LOAD movie dataset
@@ -57,3 +58,32 @@ BEGIN
     END IF
 
 END
+```
+
+## Testing
+Tested against data/IMDB_DATASET.csv (99 movies)
+
+- **Input: romance**
+  - Expected (from spreadsheet): Forrest Gump, 8.8, 7 movies
+  - Actual (from tracing pseudocode): Forrest Gump, 8.8, 7 movies
+  - Result: Pass, the algorithm handles lowercase input
+
+- **Input: Comedy**
+  - Expected (from spreadsheet): Gisaengchung, 8.6, 11 movies
+  - Actual (from tracing pseudocode): Gisaengchung, 8.6, 11 movies
+  - Result: Pass, the tie rule keeps Gisaengchung because it appears first in the dataset
+
+- **Input: Music**
+  - Expected (from spreadsheet): Whiplash, 8.5, 3 movies
+  - Actual (from tracing pseudocode): Whiplash, 8.5, 3 movies
+  - Result: Pass. The matching movies are Whiplash, The Pianist, and Andhadhun. The Pianist has the same rating as Whiplash, but the tie rule keeps Whiplash because it appears first in the dataset. Anand is excluded because its genre is Musical, not Music.
+
+- **Input: not a genre**
+  - Expected (from spreadsheet): Genre not found
+  - Actual (from tracing pseudocode): "Results for: not a genre" followed by "Genre not found"
+  - Result: Pass
+
+- **Input: (empty)**
+  - Expected: Please enter a genre
+  - Actual (from tracing pseudocode): "Please enter a genre"
+  - Result: Pass
