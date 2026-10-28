@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb CineMetrics | Highest-Rated Movies by Genre</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="movies_data.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>IMDb CineMetrics</h1>
+            <p>Algorithmic Discovery & Analytics across 99 Acclaimed Feature Films</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="active">Home</a>
+            <a href="dataset.html">Dataset</a>
+            <a href="algorithm.html">Algorithm</a>
+            <a href="people.html">People</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2>About the Project</h2>
+        <p>
+            When exploring vast cinema archives, viewers often face choice paralysis. 
+            Our project addresses a concrete cultural analytics need: <strong>Given any movie genre, what is the single highest-rated film in the curated IMDb catalog, how many films represent that genre, and what makes this ranking statistically sound?</strong>
+        </p>
+
+        <!-- Stat Highlights -->
+        <div class="grid-3">
+            <div class="stat-box">
+                <div class="stat-number">99</div>
+                <div class="stat-label">Curated Masterpieces</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">20</div>
+                <div class="stat-label">Unique Cinema Genres</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">38</div>
+                <div class="stat-label">Lines of Pseudocode</div>
+            </div>
+        </div>
+
+        <!-- Interactive Algorithm Finder -->
+        <h2>Interactive Algorithm Demo: Find the Highest-Rated Film</h2>
+        <p>
+            Test our core algorithm live in your browser! Type any movie genre below (e.g., <em>Crime</em>, <em>Sci-Fi</em>, <em>Animation</em>, <em>Music</em>, or <em>Western</em>) or click a quick tag to execute the selection algorithm against our cleaned dataset.
+        </p>
+
+        <div class="search-widget-container">
+            <form id="genre-search-form">
+                <div class="search-input-row">
+                    <input type="text" id="genre-input" class="search-input" placeholder="Type a genre (e.g. Crime, Drama, Sci-Fi, Animation)..." value="Crime" autocomplete="off">
+                    <button type="submit" class="btn-primary">Run Algorithm</button>
+                </div>
+                <div class="genre-chips-row">
+                    <span class="chips-label">Quick Genres:</span>
+                    <button type="button" class="genre-chip" data-genre="Crime">Crime</button>
+                    <button type="button" class="genre-chip" data-genre="Drama">Drama</button>
+                    <button type="button" class="genre-chip" data-genre="Action">Action</button>
+                    <button type="button" class="genre-chip" data-genre="Sci-Fi">Sci-Fi</button>
+                    <button type="button" class="genre-chip" data-genre="Animation">Animation</button>
+                    <button type="button" class="genre-chip" data-genre="Music">Music</button>
+                    <button type="button" class="genre-chip" data-genre="Musical">Musical</button>
+                    <button type="button" class="genre-chip" data-genre="Western">Western</button>
+                    <button type="button" class="genre-chip" data-genre="Comedy">Comedy</button>
+                    <button type="button" class="genre-chip" data-genre="Mystery">Mystery</button>
+                </div>
+            </form>
+
+            <div id="search-result-container">
+                <!-- Dynamically populated by app.js -->
+            </div>
+        </div>
+
+        <h2>Project Workflow in Five Steps</h2>
+        <div class="box">
+            <ol>
+                <li><strong>Step 1: Conceptualization:</strong> Formulated the problem of deterministic, genre-specific movie recommendation and conceptualized a relational tabular model mapping multi-genre attributes.</li>
+                <li><strong>Step 2: Curate & Clean Dataset:</strong> Curated 99 high-rated items (exceeding the 50-item minimum requirement), fixed UTF-8 character encoding artifacts, and validated CSV well-formedness.</li>
+                <li><strong>Step 3: Algorithm Design:</strong> Authored a 38-line formal pseudocode and Python script with iteration, tokenized string selection, 0.0 baseline initialization, and deterministic tie-breaking.</li>
+                <li><strong>Step 4: Web Application:</strong> Designed this 4-page responsive web platform complete with real-time client-side algorithmic simulation and data exploration.</li>
+                <li><strong>Step 5: GitHub Publishing:</strong> Packaged the codebase into a clean Git repository and deployed it publicly on GitHub Pages.</li>
+            </ol>
+        </div>
+
+        <h2>Explore the Project</h2>
+        <p>
+            Dive deeper into each facet of the project using the top navigation:
+        </p>
+        <ul>
+            <li><a href="dataset.html"><strong>Dataset:</strong></a> Inspect the 16 metadata attributes, data cleaning rationale, and browse all 99 films in an interactive table.</li>
+            <li><a href="algorithm.html"><strong>Algorithm:</strong></a> Read the 38-line pseudocode, view the Python script, test edge cases, and inspect step-by-step trace execution.</li>
+            <li><a href="people.html"><strong>People & Roles:</strong></a> Learn about the team, division of labor across all 5 workflow steps, and reflective project insights.</li>
+        </ul>
+    </main>
+
+    <footer>
+        Datalogical Thinking / Algorithm Design Project Work &bull; Team CineMetrics 2026
+    </footer>
+</body>
+</html>

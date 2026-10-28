@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People & Division of Labor | IMDb CineMetrics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="movies_data.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>IMDb CineMetrics</h1>
+            <p>Algorithmic Discovery & Analytics across 99 Acclaimed Feature Films</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html">Home</a>
+            <a href="dataset.html">Dataset</a>
+            <a href="algorithm.html">Algorithm</a>
+            <a href="people.html" class="active">People</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2>Project Team & Roles</h2>
+        <p>
+            The CineMetrics project was collaboratively conceptualized, implemented, and deployed by our project group. To ensure thorough coverage of the five project workflow steps, responsibilities were structured across functional domains with continuous peer review.
+        </p>
+
+        <div class="team-grid">
+            <div class="member-card">
+                <h3>Isabella Mårtensson</h3>
+                <div class="member-role">Project Lead & Algorithm Engineer</div>
+                <p><strong>Primary Workflow Focus:</strong> Steps 1, 3 & 5</p>
+                <ul>
+                    <li>Formulated the core research question and problem definition.</li>
+                    <li>Designed the 38-line pseudocode algorithm and Python reference implementation.</li>
+                    <li>Established the strict tie-breaker rule and boundary test cases.</li>
+                    <li>Maintained the GitHub repository structure and orchestrated GitHub Pages deployment.</li>
+                </ul>
+            </div>
+
+            <div class="member-card">
+                <h3>John Kane</h3>
+                <div class="member-role">Dataset Lead</div>
+                <p><strong>Primary Workflow Focus:</strong> Steps 1, 2 & 5</p>
+                <ul>
+                    <li>Identified, extracted, cleaned and built the 99-movie IMDb master dataset (at least 50 items).</li>
+                    <li>Validated dataset integrity and completeness (W3C validator for XML, schema checks for CSV).</li>
+                    <li>Wrote the dataset and the motivation for the data model choices.</li>
+                </ul>
+            </div>
+
+            <div class="member-card">
+                <h3>Babatunde Adedeji</h3>
+                <div class="member-role">Website & GitHub Lead</div>
+                <p><strong>Primary Workflow Focus:</strong> Steps 4 & 5</p>
+                <ul>
+                    <li>Built the 4-page website with a responsive website layout.</li>
+                    <li>Enriched the content of the 4-page website (Home, Dataset, Algorithm & People).</li>
+                    <li>Implemented modern CSS variables, cards, badges, and accessible typography.</li>
+                    <li>Developed the client-side JavaScript engine for zero-CORS GitHub Pages execution.</li>
+                    <li>Built the live search widget, table filters, and execution trace visualizer.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Workflow Breakdown Across the 5 Project Steps</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Workflow Step</th>
+                    <th style="width: 35%;">Core Responsibilities</th>
+                    <th>Deliverables Produced</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Step 1: Conceptualization</strong></td>
+                    <td>Brainstormed analytical goals, evaluated flat vs hierarchical data models, and defined user need.</td>
+                    <td>Problem statement, relational data schema design, and selection logic rationale.</td>
+                </tr>
+                <tr>
+                    <td><strong>Step 2: Dataset Curation</strong></td>
+                    <td>Sourced 99 top-rated films, repaired character encoding issues, stripped whitespace, validated CSV.</td>
+                    <td><code>IMDB_DATASET_clean.csv</code> (99 rows) and serialized <code>movies.json</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Step 3: Algorithm Design</strong></td>
+                    <td>Authored 38 lines of structured pseudocode, implemented Python script, designed 5-case test suite.</td>
+                    <td><code>algorithm.txt</code>, <code>algorithm.py</code>, and verification test outputs.</td>
+                </tr>
+                <tr>
+                    <td><strong>Step 4: Website Development</strong></td>
+                    <td>Engineered 4 responsive hyperlinked web pages, refined styling, added interactive simulation engine.</td>
+                    <td><code>index.html</code>, <code>dataset.html</code>, <code>algorithm.html</code>, <code>people.html</code>, <code>style.css</code>, <code>app.js</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Step 5: GitHub Publishing</strong></td>
+                    <td>Configured git version control, authored repository documentation, published live to GitHub Pages.</td>
+                    <td>GitHub repository: <a href="https://github.com/isabellamartensson/Project-Work-8" target="_blank">Project-Work-8</a>.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Reflections on Collaboration & Iterative Design</h2>
+        <div class="box">
+            <h4>Mutual Dependence of Dataset Modeling and Algorithm Design:</h4>
+            <p>
+                As emphasized in the course guidelines, algorithm design is inherently an iterative process. During our initial implementation of Step 3, we attempted simple substring matching (e.g., checking if <code>"music"</code> was present in the genre string). However, testing quickly revealed that this caused films classified solely as <em>Musical</em> (such as <em>Anand</em>) to be erroneously counted under <em>Music</em>.
+            </p>
+            <p>
+                This realization prompted us to revisit Step 2 and Step 3: rather than altering the dataset to force artificial single-genre constraints, we refined our data model to treat genres as comma-separated tokens and modified the algorithm to split and trim each tag individually. This preserved the multi-genre richness of cinema while ensuring 100% precision during evaluation.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        Datalogical Thinking / Algorithm Design Project Work &bull; Team CineMetrics 2026
+    </footer>
+</body>
+</html>

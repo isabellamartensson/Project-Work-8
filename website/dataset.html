@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset | IMDb CineMetrics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="movies_data.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>IMDb CineMetrics</h1>
+            <p>Algorithmic Discovery & Analytics across 99 Acclaimed Feature Films</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html">Home</a>
+            <a href="dataset.html" class="active">Dataset</a>
+            <a href="algorithm.html">Algorithm</a>
+            <a href="people.html">People</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2>What Does the Dataset Describe?</h2>
+        <p>
+            Our curated dataset, <code>IMDB_DATASET_clean.csv</code>, describes <strong>99 acclaimed feature films</strong> selected from the Internet Movie Database (IMDb). The dataset provides rich cultural and production metadata spanning eight decades of cinematic history (1931–2020), including directorial credits, leading cast members, critical acclaim scores, and multi-genre taxonomies.
+        </p>
+        <p>
+            This dataset easily satisfies and exceeds the assignment specification requiring a minimum of <strong>50 well-formed items</strong>.
+        </p>
+
+        <div class="box">
+            <strong>Dataset Overview at a Glance</strong>
+            <ul>
+                <li><strong>Total Curated Items:</strong> 99 feature films (exceeds the 50-item minimum)</li>
+                <li><strong>Attribute Count:</strong> 16 structured metadata fields</li>
+                <li><strong>File Formats:</strong> Validated UTF-8 Comma-Separated Values (<code>.csv</code>) and serialized <code>.json</code></li>
+                <li><strong>Primary Analytics Fields:</strong> <code>Series_Title</code>, <code>Genre</code>, <code>IMDB_Rating</code></li>
+                <li><strong>Download Dataset:</strong> <a href="IMDB_DATASET_clean.csv" download>Download IMDB_DATASET_clean.csv</a></li>
+            </ul>
+        </div>
+
+        <h2>Data Model & Schema</h2>
+        <p>
+            Below is the formal schema defining the 16 metadata attributes recorded for each cinematic item:
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Column Name</th>
+                    <th style="width: 20%;">Data Type</th>
+                    <th>Description & Role in Algorithm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>Series_Title</code></td>
+                    <td>String (Text)</td>
+                    <td>Official release title of the film; returned as the algorithm's winning recommendation.</td>
+                </tr>
+                <tr>
+                    <td><code>Genre</code></td>
+                    <td>String (Comma-separated)</td>
+                    <td>One or more genre tags (e.g., <em>"Action, Crime, Drama"</em>); split and trimmed by the algorithm.</td>
+                </tr>
+                <tr>
+                    <td><code>IMDB_Rating</code></td>
+                    <td>Float (Numeric 0.0–10.0)</td>
+                    <td>User-weighted IMDb rating score; serves as the numerical sorting key.</td>
+                </tr>
+                <tr>
+                    <td><code>Released_Year</code></td>
+                    <td>Integer (Year)</td>
+                    <td>Original theatrical release year (spans 1931 through 2020).</td>
+                </tr>
+                <tr>
+                    <td><code>Certificate</code></td>
+                    <td>String (Rating Code)</td>
+                    <td>Content classification rating (e.g., A, UA, U, PG-13, R, Passed).</td>
+                </tr>
+                <tr>
+                    <td><code>Runtime</code></td>
+                    <td>String (Minutes)</td>
+                    <td>Total running duration formatted with unit suffix (e.g., <em>"142 min"</em>).</td>
+                </tr>
+                <tr>
+                    <td><code>Overview</code></td>
+                    <td>String (Narrative)</td>
+                    <td>Concise narrative synopsis describing the core dramatic plot.</td>
+                </tr>
+                <tr>
+                    <td><code>Meta_score</code></td>
+                    <td>Float (0–100)</td>
+                    <td>Normalized Metacritic critic assessment score.</td>
+                </tr>
+                <tr>
+                    <td><code>Director</code></td>
+                    <td>String (Name)</td>
+                    <td>Principal film director credit (e.g., Christopher Nolan, Francis Ford Coppola).</td>
+                </tr>
+                <tr>
+                    <td><code>Star1, Star2, Star3, Star4</code></td>
+                    <td>String (Names)</td>
+                    <td>Top four billed lead actors/actresses.</td>
+                </tr>
+                <tr>
+                    <td><code>No_of_Votes</code></td>
+                    <td>Integer</td>
+                    <td>Total quantity of registered user votes submitted on IMDb.</td>
+                </tr>
+                <tr>
+                    <td><code>Gross</code></td>
+                    <td>Float / Currency</td>
+                    <td>Cumulative worldwide or domestic box-office earnings.</td>
+                </tr>
+                <tr>
+                    <td><code>Poster_Link</code></td>
+                    <td>URL (HTTP Link)</td>
+                    <td>Direct hyperlinked image asset representing the official theatrical poster.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Data Curation, Cleaning & Validation</h2>
+        <div class="box">
+            <h4>Curatorial Decisions & Cleaning Interventions:</h4>
+            <ul>
+                <li>
+                    <strong>Mojibake & Character Encoding Repair:</strong> The raw Excel export suffered from Latin-1/CP1252 decoding artifacts where UTF-8 characters were garbled. We repaired these strings into pristine UTF-8 (e.g., fixing <em>"La vita Ã¨ bella"</em> &rarr; <em>"La vita è bella"</em>, <em>"LÃ©on"</em> &rarr; <em>"Léon"</em>, <em>"CapharnaÃ¼m"</em> &rarr; <em>"Capharnaüm"</em>, and <em>"WALLÂ·E"</em> &rarr; <em>"WALL·E"</em>).
+                </li>
+                <li>
+                    <strong>Multi-Valued Genre Modeling:</strong> Rather than forcing films into an artificially reductive single-genre category or relying on brittle substring searches (which cause false positives like <em>"Music"</em> matching <em>"Musical"</em>), we preserved composite comma-separated genres and implemented exact token splitting in the algorithm.
+                </li>
+                <li>
+                    <strong>Text Sanitization & Whitespace Trimming:</strong> Removed trailing ellipsis artifacts (such as <em>"See full summary »"</em>) and trimmed leading/trailing spaces across all text columns.
+                </li>
+                <li>
+                    <strong>Dataset Validation:</strong> The final <code>IMDB_DATASET_clean.csv</code> was checked for RFC 4180 CSV compliance, ensuring proper field escaping and quote delimiters across all 99 rows.
+                </li>
+            </ul>
+        </div>
+
+        <h2>Interactive Dataset Explorer</h2>
+        <p>
+            Filter and search across the entire 99-movie catalog in real-time. Use the search field to filter by movie title or director, or filter by specific genre.
+        </p>
+
+        <div class="card">
+            <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-bottom:1rem;">
+                <div style="flex:1; min-width:220px;">
+                    <label for="table-search-input" style="font-size:0.85rem; font-weight:bold; display:block; margin-bottom:0.3rem;">Search Title / Director:</label>
+                    <input type="text" id="table-search-input" class="search-input" placeholder="Filter by title, director, or actor..." style="width:100%; padding:0.5rem 0.8rem;">
+                </div>
+                <div style="min-width:180px;">
+                    <label for="table-genre-select" style="font-size:0.85rem; font-weight:bold; display:block; margin-bottom:0.3rem;">Filter by Genre:</label>
+                    <select id="table-genre-select" class="search-input" style="width:100%; padding:0.5rem 0.8rem;">
+                        <option value="ALL">All Genres (20)</option>
+                    </select>
+                </div>
+                <div style="margin-top:1.3rem;">
+                    <span id="table-count-label" class="badge badge-neutral" style="padding:0.5rem 0.8rem; font-size:0.9rem;">Showing 99 of 99 movies</span>
+                </div>
+            </div>
+
+            <div style="max-height: 520px; overflow-y: auto; border: 1px solid var(--border);">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Year</th>
+                            <th>Rating</th>
+                            <th>Genres</th>
+                            <th>Director</th>
+                            <th>Runtime</th>
+                        </tr>
+                    </thead>
+                    <tbody id="movies-table-body">
+                        <!-- Populated dynamically by app.js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Datalogical Thinking / Algorithm Design Project Work &bull; Team CineMetrics 2026
+    </footer>
+</body>
+</html>
