@@ -10,9 +10,9 @@ Assignment 2: Algorithm Design (Project Work), Group 8
 - website files: coming soon
 
 ## Website
-Link: https://isabellamartensson.github.io/Project-Work-8/
+Link: [Movies Website Home Page](./website/pages/index.html)
 
 ## Group members
-- Isabella Mårtensson (Algorithm/GitHub lead)
-- John Kane (Dataset lead)
-- Babatunde Adedeji (Website lead)
+- Isabella Mårtensson (Algorithm/GitHub Lead)
+- John Kane (Dataset Lead)
+- Babatunde Adedeji (Website Lead)
