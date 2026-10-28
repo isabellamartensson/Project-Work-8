@@ -4,7 +4,7 @@
 
 ---
 
-## 📖 Executive Summary
+## Summary
 IMDb CineMetrics is an algorithmic cultural analytics project developed according to the five-step course project workflow. It addresses the challenge of identifying and contextualizing the highest-rated cinematic masterpieces across 20 distinct film genres from a curated collection of 99 top-rated IMDb films.
 
 The project bundles together:
@@ -72,7 +72,7 @@ python3 algorithm.py Music
 ---
 
 
-## 📊 Dataset Overview (Steps 1 & 2)
+## Dataset Overview (Steps 1 & 2)
 
 - **Source:** Curated catalog of acclaimed feature films from the Internet Movie Database (IMDb).
 - **Size:** 99 unique films (exceeds the 50-item assignment requirement).
@@ -84,7 +84,7 @@ python3 algorithm.py Music
 
 ---
 
-## 🧪 Verification & Test Suite
+## Verification & Test Suite
 
 | Test ID | Test Description | Input | Expected Output | Status |
 |---|---|---|---|:---:|
