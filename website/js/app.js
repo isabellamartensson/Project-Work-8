@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /**
  * Core Algorithm Implementation in JavaScript
- * Mirrors algorithm.py and algorithm.txt exactly.
+ * Mirrors algorithm.py and algorithm.md exactly.
  */
 function runMovieAlgorithm(targetGenreInput, dataset = MOVIES_DATA) {
     const rawInput = targetGenreInput || "";
