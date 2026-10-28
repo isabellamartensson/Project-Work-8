@@ -10,8 +10,8 @@ Assignment 2: Algorithm Design (Project Work), Group 8
 - Website files: [files](./website)
 
 ## Website
-Link: [Movies Website Home Page](./website/pages/index.html)
-Document: [How to Run](./website/README.md)
+- Link: [Movies Website Home Page](./website/pages/index.html)
+- Document: [How to Run](./website/README.md)
 
 ## Group members
 - Isabella Mårtensson (Algorithm/GitHub Lead)
