@@ -61,7 +61,7 @@ END
 ```
 
 ## Testing
-Tested against data/IMDB_DATASET.csv (99 movies)
+Tested against website/IMDB_DATASET_clean.csv (99 movies)
 
 - **Input: romance**
   - Expected (from spreadsheet): Forrest Gump, 8.8, 7 movies
